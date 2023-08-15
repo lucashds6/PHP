@@ -1,5 +1,7 @@
 <?php
 
+require_once 'funcoes.php';
+
 $contasCorrentes = [
     '123.456.789-10' => [
         'titular' => 'Maria', 
@@ -14,34 +16,6 @@ $contasCorrentes = [
         'saldo' => 100
     ]
     ];
-
-function sacar(array $conta, float $valorASacar) : array
-{
-    if ($valorASacar > $conta ['saldo']) {
-        exibeMensagem(mensagem: "Você não pode sacar");
-   } else {
-    $conta ['saldo'] -= $valorASacar;
-   }
-
-   return $conta;
-}
-
-function exibeMensagem(string $mensagem)
-{
-    echo $mensagem . PHP_EOL;
-}
-
-function depositar(array $conta, float $valorADepositar) : array
-{
-    if ($valorADepositar > 0){
-        $conta['saldo'] += $valorADepositar;
-    } else {
-        exibeMensagem(mensagem:"Depositos precisam ser positivos");
-    }
-    
-    return $conta;
-    
-}
 
     $contasCorrentes['123.456.789-10'] = sacar(
         $contasCorrentes['123.456.789-10'],
@@ -59,7 +33,9 @@ function depositar(array $conta, float $valorADepositar) : array
         );
 
 foreach ($contasCorrentes as $cpf => $conta){
-    exibeMensagem(mensagem:$cpf . " " .  $conta['titular'] . ' ' . $conta['saldo']);
+    exibeMensagem(
+        mensagem:"$cpf {$conta['titular']} {$conta['saldo']}"
+    );
 }
 
 
