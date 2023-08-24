@@ -32,6 +32,8 @@ $contasCorrentes = [
         valorADepositar:900
         );
 
+    titularComLetrasMaiusculas($contasCorrentes['123.256.789-12']);
+
 foreach ($contasCorrentes as $cpf => $conta){
     exibeMensagem(
         mensagem:"$cpf {$conta['titular']} {$conta['saldo']}"
