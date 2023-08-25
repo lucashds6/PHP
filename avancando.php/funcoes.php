@@ -1,5 +1,5 @@
 <?php
-exibeMensagem(mensagem:"Olá Arquivo de funções aqui.");
+// exibeMensagem(mensagem:"Olá Arquivo de funções aqui.");
 
 function sacar(array $conta, float $valorASacar) : array
 {
